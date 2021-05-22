@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+DO_SOME_THINg = "lkjhdsflkjh"
 
 # Application definition
 
