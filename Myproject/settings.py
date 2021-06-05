@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-print("Add changes")
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -27,8 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DO_SOME_THINg = "lkjhdsflkjh"
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'car',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +53,8 @@ ROOT_URLCONF = 'Myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #\\ BASE_DIR = r"C:\Users\User\Desktop\Python Level 2\Myproject"
+        'DIRS': [BASE_DIR.joinpath("car","templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
