@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">vin</th>
+    </tr>
+  </thead>
+  {% for car in object_list %}
+    <tbody>
+      <tr>
+        <th scope="row"><a href="/car/{{car.id}}">{{car.name}}</a></th>
+        <td>{{car.vin_number}}</td>
+      </tr>
+    <tbody>
+  {% endfor %}
+</table>
+{% endblock content%}
