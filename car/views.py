@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from car.models import Car
-from car.forms import CarForm
+# from car.forms import CarForm
 from django.views.generic.edit import CreateView
 # Create your views here.
 
@@ -37,7 +37,7 @@ class CarCreateView(CreateView):
     template_name = "car_create.html"
 
     model = Car
-    form_class = CarForm
+    # form_class = CarForm
 
 # def car_create(request):
 #     if request.method == "POST":

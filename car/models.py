@@ -11,6 +11,12 @@ class Car(models.Model):
         null=True,
         related_name="cars"
     )
+    color = models.ForeignKey(
+        "car.CarColor",
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="cars"
+    )
 
     def company(self):
         if self.car_model:
@@ -34,6 +40,16 @@ class CarModel(models.Model):
     def __str__(self):
         return self.name
 
+
+class CarColor(models.Model):
+
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Companies"
 
 class Company(models.Model):
 
