@@ -55,7 +55,11 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         #\\ BASE_DIR = r"C:\Users\User\Desktop\Python Level 2\Myproject"
-        'DIRS': [BASE_DIR.joinpath("templates"),BASE_DIR.joinpath("car","templates")],
+        'DIRS': [
+            BASE_DIR.joinpath("templates"),
+            BASE_DIR.joinpath("car","templates"),
+            BASE_DIR.joinpath("bowling", "templates")
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
