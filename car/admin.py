@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Car, CarModel, Company
+from .models import Car, CarModel, Company, CarColor
+
+
 # Register your models here.
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
@@ -23,8 +25,10 @@ class CarAdmin(admin.ModelAdmin):
         "company"
     ]
 
+
 class CarInline(admin.StackedInline):
     model = Car
+
 
 @admin.register(CarModel)
 class CarModelAdmin(admin.ModelAdmin):
@@ -34,6 +38,17 @@ class CarModelAdmin(admin.ModelAdmin):
     inlines = [
         CarInline,
     ]
+
+
+@admin.register(CarColor)
+class CarColorAdmin(admin.ModelAdmin):
+    list_display = [
+        "name"
+    ]
+    inlines = [
+        CarInline,
+    ]
+
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):

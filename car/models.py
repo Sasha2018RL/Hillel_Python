@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 # Create your models here.
 class Car(models.Model):
     name = models.CharField(max_length=100)
@@ -27,13 +28,13 @@ class Car(models.Model):
         return f"Name:{self.name} vin_number: {self.vin_number}"
 
     def get_absolute_url(self):
-        return reverse('car-detail', kwargs={'pk' : self.pk})
+        return reverse('car-detail', kwargs={'pk': self.pk})
 
     class Meta:
         ordering = ["car_model"]
 
-class CarModel(models.Model):
 
+class CarModel(models.Model):
     name = models.CharField(max_length=100)
     company = models.ForeignKey("car.Company", on_delete=models.SET_NULL, null=True)
 
@@ -42,21 +43,23 @@ class CarModel(models.Model):
 
 
 class CarColor(models.Model):
-
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name_plural = "Companies"
+        verbose_name_plural = "Colors"
+
 
 class Company(models.Model):
-
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('company-detail', kwargs={'pk': self.pk})
 
     class Meta:
         verbose_name_plural = "Companies"
