@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block extra_css %}
+{% endblock extra_css %}
+{% block content %}
+
+<h1>Player</h1>
+<h3>{{player.name}}</h3>
+<p class="h5">Row: <a href="/row_session/{{player.row.id}}">{{ player.row }}</a></p>
+<p class="h5">Updated at: {{player.last_update}}</p>
+{% endblock content%}

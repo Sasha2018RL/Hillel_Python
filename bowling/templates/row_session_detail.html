@@ -3,14 +3,8 @@
 {% endblock extra_css %}
 {% block content %}
 
-<h1>Car</h1>
-<h3>{{row_session.name}}</h3>
-<p class="h5">{{car.vin_number}}</p>
-<p class="h5">{{car.model}}</p>
-<p class="h5">{{car.company}}</p>
-<div class="row">
-  <div class="col-12 color_text_red" >
-    {% lorem 3 p %}
-  </div>
-</div>
+<h1>Row</h1>
+<h3>{{rowsession.row.name}}</h3>
+<p class="h5">{{rowsession.user.username}}</p>
+<p class="h5">{{rowsession.date}}</p>
 {% endblock content%}

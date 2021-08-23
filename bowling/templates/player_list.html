@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-4 color_text_red">
+    <h1>Players list</h1>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Row session</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for user in object_list %}
+      <tr>
+        <td><a href="/player/{{user.id}}">{{user.name}}</a></td>
+        <td><a href="/row_session/{{user.row.id}}">{{user.row}}</a></td>
+        <td>{{ user.date }}</td>
+      </tr>
+      {% endfor %}
+    <tbody>
+</table>
+{% endblock content%}

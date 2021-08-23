@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-4 color_text_red">
+    <h1>{{title}}</h1>
+  </div>
+</div>
+<p>{{ row_sessions }}</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Row</th>
+      <th scope="col">User</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+    <tbody>
+      {% for session in object_list %}
+      <tr>
+        <td><a href="/row/{{session.row.id}}">{{session.row.name}}</a></td>
+        <td>{{session.user.username}}</td>
+        <td>{{ session.date }}</td>
+      </tr>
+      {% endfor %}
+    <tbody>
+</table>
+{% endblock content%}
