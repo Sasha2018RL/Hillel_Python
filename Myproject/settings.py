@@ -36,7 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'car',
-    'bowling'
+    'bowling',
+    'galaxy'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,8 @@ TEMPLATES = [
         'DIRS': [
             BASE_DIR.joinpath("templates"),
             BASE_DIR.joinpath("car","templates"),
-            BASE_DIR.joinpath("bowling", "templates")
+            BASE_DIR.joinpath("bowling", "templates"),
+            BASE_DIR.joinpath("galaxy", "templates")
         ],
         'APP_DIRS': True,
         'OPTIONS': {
