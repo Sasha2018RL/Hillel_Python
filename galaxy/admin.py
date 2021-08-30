@@ -11,6 +11,7 @@ class GalaxyAdmin(admin.ModelAdmin):
         "size_y"
     ]
 
+
 @admin.register(StarSystem)
 class StarSystemAdmin(admin.ModelAdmin):
     list_display = [
@@ -19,14 +20,17 @@ class StarSystemAdmin(admin.ModelAdmin):
         "position_y"
     ]
 
+
 @admin.register(Star)
 class StarSystemAdmin(admin.ModelAdmin):
     list_display = [
         "name",
         "color",
         "star_system",
-        "diameter"
+        "diameter",
+        "area"
     ]
+
 
 @admin.register(Planet)
 class PlanetAdmin(admin.ModelAdmin):
@@ -35,5 +39,5 @@ class PlanetAdmin(admin.ModelAdmin):
         'color',
         'star_system',
         'diameter',
-
+        'area'
     ]

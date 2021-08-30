@@ -1,3 +1,5 @@
+import math
+
 from django.db import models
 
 
@@ -8,12 +10,16 @@ class CommonName(models.Model):
         abstract = True
 
 
-class CommonNameColorStarSystemDiameter(CommonName):
+class SpaceBody(CommonName):
     color = models.CharField(max_length=30)
     star_system = models.ForeignKey('galaxy.StarSystem',
                                     on_delete=models.CASCADE)
 
     diameter = models.PositiveIntegerField(default=1)
+
+    @property
+    def area(self):
+        return round(4 * math.pi * ((self.diameter / 2) ** 2), 4)
 
     class Meta:
         abstract = True
@@ -45,7 +51,7 @@ class StarSystem(CommonName):
         return '/star_system'
 
 
-class Star(CommonNameColorStarSystemDiameter):
+class Star(SpaceBody):
 
     def __str__(self):
         return f"{self.name}"
@@ -54,7 +60,7 @@ class Star(CommonNameColorStarSystemDiameter):
         return '/star'
 
 
-class Planet(CommonNameColorStarSystemDiameter):
+class Planet(SpaceBody):
     live = models.BooleanField(default=False)
 
     def get_absolute_url(self):
