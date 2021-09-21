@@ -15,9 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+
+from galaxy import api_views
+# Galaxy
+# StarSystem
+# Star
+# Planet
+from galaxy.api_views import GalaxyViewSet, StarSystemViewSet, StarViewSet, PlanetViewSet
+
+router = routers.DefaultRouter()
+router.register(r'Galaxy', GalaxyViewSet)
+router.register(r'StarSystem', StarSystemViewSet)
+router.register(r'Star', StarViewSet)
+router.register(r'Planet', PlanetViewSet)
 
 urlpatterns = [
     path("", include("car.urls")),
     path("", include("bowling.urls")),
+    path('api/', include(router.urls)),
     path('admin/', admin.site.urls),
 ]

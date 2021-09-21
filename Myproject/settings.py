@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'car',
     'bowling',
-    'galaxy'
+    'galaxy',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
